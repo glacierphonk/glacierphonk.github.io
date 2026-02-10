@@ -1,0 +1,16 @@
+/* TEAM */
+Name: Paweł Pela
+Role: Founder & Developer
+Location: Warsaw, Poland
+Telegram: @glacierphonkhq
+GitHub: @glacierphonk
+
+/* SITE */
+Built with: HTML, CSS, vanilla JS
+Fonts: Orbitron, Chakra Petch, JetBrains Mono (Google Fonts)
+Hosted on: GitHub Pages
+Last update: 2026-02-09
+
+/* THANKS */
+Coffee — fuel
+Warsaw — home base

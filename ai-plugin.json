@@ -1,0 +1,19 @@
+{
+  "name": "GlacierPhonk",
+  "description": "Solo dev studio building Telegram bots, Mini Apps, and channels. Warsaw, Poland.",
+  "url": "https://glacierphonk.com",
+  "contact": "elo@glacierphonk.com",
+  "founder": "Paweł Pela",
+  "services": [
+    "Telegram bot development",
+    "Telegram Mini App development",
+    "Telegram channel management",
+    "Automation and workflow building"
+  ],
+  "social": {
+    "telegram": "https://t.me/glacierphonkhq",
+    "github": "https://github.com/glacierphonk",
+    "twitter": "https://x.com/glacierphonk",
+    "linkedin": "https://linkedin.com/company/glacierphonk"
+  }
+}

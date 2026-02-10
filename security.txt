@@ -1,0 +1,3 @@
+Contact: mailto:elo@glacierphonk.com
+Preferred-Languages: en, pl
+Canonical: https://glacierphonk.com/.well-known/security.txt
