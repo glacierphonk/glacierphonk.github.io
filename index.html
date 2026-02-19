@@ -403,6 +403,45 @@
     color: var(--frost-muted);
   }
 
+  /* ===== TERMINAL BOOT ===== */
+  .terminal-boot {
+    padding: 80px 24px 120px;
+  }
+  .terminal-boot pre {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(0.55rem, 1.2vw, 0.75rem);
+    line-height: 1.7;
+    color: var(--frost-dim);
+    white-space: pre;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .terminal-boot .line-cyan {
+    color: var(--cyan);
+  }
+  .terminal-boot .line-purple {
+    color: var(--purple);
+  }
+  .terminal-boot .line-frost {
+    color: var(--frost);
+  }
+  .terminal-boot .line-ok {
+    color: #4ade80;
+  }
+  .terminal-boot .gp-logo {
+    color: var(--cyan);
+  }
+  .terminal-boot .gp-wordmark {
+    color: var(--frost);
+    letter-spacing: 3px;
+  }
+  .terminal-line {
+    opacity: 0;
+  }
+  .terminal-boot.visible .terminal-line {
+    animation: fadeUp 0.4s ease forwards;
+  }
+
   /* ===== DIVIDER ===== */
   .divider {
     max-width: 880px;
@@ -469,6 +508,30 @@
     <a href="https://t.me/glacierphonkhq" class="btn btn-primary">Join Telegram →</a>
     <a href="https://github.com/glacierphonk" class="btn btn-ghost">View on GitHub</a>
   </div>
+</section>
+
+<section class="terminal-boot reveal">
+<pre>
+<span class="terminal-line" style="animation-delay:0.2s"><span class="line-cyan">[BOOT]</span> GlacierPhonk™ system v1.0.0</span>
+<span class="terminal-line" style="animation-delay:0.4s"><span class="line-cyan">[INIT]</span> Loading core modules...</span>
+<span class="terminal-line" style="animation-delay:0.6s">  ├── telegram-bots       <span class="line-ok">[OK]</span></span>
+<span class="terminal-line" style="animation-delay:0.8s">  ├── mini-apps           <span class="line-ok">[OK]</span></span>
+<span class="terminal-line" style="animation-delay:1.0s">  ├── channels            <span class="line-ok">[OK]</span></span>
+<span class="terminal-line" style="animation-delay:1.2s">  └── automations         <span class="line-ok">[OK]</span></span>
+<span class="terminal-line" style="animation-delay:1.5s"><span class="line-cyan">[SCAN]</span> Location: Warsaw, Poland</span>
+<span class="terminal-line" style="animation-delay:1.7s"><span class="line-cyan">[SCAN]</span> Mode: cold builds, no fluff</span>
+<span class="terminal-line" style="animation-delay:2.0s"><span class="line-purple">[LOAD]</span> Mounting identity...</span>
+<span class="terminal-line" style="animation-delay:2.4s">
+<span class="gp-logo">                       ██████╗ ██████╗</span>
+<span class="gp-logo">                      ██╔════╝ ██╔══██╗</span>
+<span class="gp-logo">                      ██║  ███╗██████╔╝</span>
+<span class="gp-logo">                      ██║   ██║██╔═══╝</span>
+<span class="gp-logo">                      ╚██████╔╝██║</span>
+<span class="gp-logo">                       ╚═════╝ ╚═╝</span>
+<span class="gp-wordmark">                G L A C I E R P H O N K ™</span>
+</span>
+<span class="terminal-line" style="animation-delay:2.8s"><span class="line-ok">[READY]</span> <span class="line-frost">System operational. All services online.</span></span>
+</pre>
 </section>
 
 <div class="divider"><hr></div>
