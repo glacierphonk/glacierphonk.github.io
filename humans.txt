@@ -9,7 +9,7 @@ GitHub: @glacierphonk
 Built with: HTML, CSS, vanilla JS
 Fonts: Orbitron, Chakra Petch, JetBrains Mono (Google Fonts)
 Hosted on: GitHub Pages
-Last update: 2026-02-09
+Last update: 2026-02-21
 
 /* THANKS */
 Coffee — fuel
