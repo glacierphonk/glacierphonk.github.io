@@ -344,6 +344,22 @@
     line-height: 1.6;
   }
 
+  /* ===== LOG PREVIEW ===== */
+  .log-preview {
+    padding: 80px 24px 120px;
+  }
+  .log-empty {
+    text-align: center;
+    padding: 48px 24px;
+    color: var(--frost-dim);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+  }
+  .log-preview .btn-ghost {
+    margin-top: 32px;
+  }
+
   /* ===== CONNECT ===== */
   .connect {
     padding: 80px 24px 120px;
@@ -488,6 +504,7 @@
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#builds">Builds</a>
+    <a href="/log/">Log</a>
     <a href="#connect">Connect</a>
   </div>
 </nav>
@@ -536,8 +553,19 @@
 
 <div class="divider"><hr></div>
 
+<section class="log-preview reveal" id="log">
+  <div class="section-label">// 003 — Log</div>
+  <h2 class="section-title">Build logs and dev notes from the studio.</h2>
+  <div class="log-empty">No entries yet. First log incoming.</div>
+  <div style="text-align:center">
+    <a href="/log/" class="btn btn-ghost">All Logs →</a>
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
 <section class="connect reveal" id="connect">
-  <div class="section-label">// 003 — Connect</div>
+  <div class="section-label">// 004 — Connect</div>
   <h2 class="section-title">Find me everywhere.</h2>
   <div class="links-grid">
     <a href="https://t.me/glacierphonkhq" class="link-item" target="_blank" rel="noopener">
@@ -594,7 +622,7 @@
 <div class="divider"><hr></div>
 
 <section class="contact reveal">
-  <div class="section-label">// 004 — Contact</div>
+  <div class="section-label">// 005 — Contact</div>
   <h2 class="section-title">Let's build something.</h2>
   <p>Got a Telegram project in mind? Need a bot, a Mini App, or a channel strategy?</p>
   <a href="mailto:hello@glacierphonk.com" class="email-link">hello@glacierphonk.com</a>

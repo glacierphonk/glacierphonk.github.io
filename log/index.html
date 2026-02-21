@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Log — GlacierPhonk™</title>
+<meta name="description" content="Build logs and dev notes from the GlacierPhonk™ studio. What's being built, how, and why.">
+<meta property="og:title" content="Log — GlacierPhonk™">
+<meta property="og:description" content="Build logs and dev notes from the GlacierPhonk™ studio.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://glacierphonk.com/log/">
+<meta property="og:image" content="https://glacierphonk.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Log — GlacierPhonk™">
+<meta name="twitter:description" content="Build logs and dev notes from the GlacierPhonk™ studio.">
+<meta name="twitter:image" content="https://glacierphonk.com/assets/og-image.png">
+<meta name="twitter:site" content="@glacierphonk">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/assets/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#0A0E17">
+<link rel="canonical" href="https://glacierphonk.com/log/">
+<link rel="alternate" type="application/rss+xml" title="GlacierPhonk™ Log" href="/log/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Chakra+Petch:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/log/log.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--black);
+    color: var(--frost);
+    font-family: 'Chakra Petch', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  ::selection { background: var(--cyan); color: var(--black); }
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+  }
+  .grid-bg {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+      linear-gradient(var(--frost-dim) 1px, transparent 1px),
+      linear-gradient(90deg, var(--frost-dim) 1px, transparent 1px);
+    background-size: 80px 80px;
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .glow-cyan {
+    position: fixed;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(0,212,255,0.06) 0%, transparent 70%);
+    pointer-events: none; z-index: 0;
+  }
+  .glow-purple {
+    position: fixed;
+    bottom: -200px; left: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(123,47,190,0.05) 0%, transparent 70%);
+    pointer-events: none; z-index: 0;
+  }
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10,14,23,0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(224,247,250,0.05);
+  }
+  .nav-mark {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a {
+    color: var(--frost-muted);
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--cyan); }
+  .nav-links a.active { color: var(--cyan); }
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    margin-bottom: 24px;
+  }
+  .log-header {
+    position: relative;
+    z-index: 1;
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 120px 24px 0;
+  }
+  .log-content {
+    position: relative;
+    z-index: 1;
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 24px 120px;
+  }
+  footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 40px 24px;
+    border-top: 1px solid rgba(224,247,250,0.05);
+  }
+  footer pre {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--frost-dim);
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+    line-height: 1.4;
+  }
+  footer p {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--frost-dim);
+    letter-spacing: 1px;
+  }
+  footer .tm { color: var(--frost-muted); }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    border: none;
+  }
+  .btn-ghost {
+    background: transparent;
+    color: var(--frost);
+    border: 1px solid var(--frost-dim);
+  }
+  .btn-ghost:hover {
+    border-color: var(--purple);
+    color: var(--purple);
+  }
+  @media (max-width: 640px) {
+    nav { padding: 12px 16px; }
+    .nav-links { gap: 16px; }
+    .nav-links a { font-size: 0.6rem; }
+    .log-header { padding: 100px 16px 0; }
+    .log-content { padding: 0 16px 80px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<div class="glow-cyan"></div>
+<div class="glow-purple"></div>
+
+<nav>
+  <a href="/" class="nav-mark">GP™</a>
+  <div class="nav-links">
+    <a href="/#about">About</a>
+    <a href="/#builds">Builds</a>
+    <a href="/log/" class="active">Log</a>
+    <a href="/#connect">Connect</a>
+  </div>
+</nav>
+
+<div class="log-header">
+  <div class="section-label">// Log</div>
+  <h1 class="section-title">Build logs and dev notes from the studio.</h1>
+</div>
+
+<div class="log-content">
+  <div class="log-list">
+    <div class="log-empty">No entries yet. First log incoming.</div>
+  </div>
+</div>
+
+<footer>
+  <pre>·──[ GP ]──·</pre>
+  <p>© 2026 <span class="tm">GlacierPhonk™</span> · Paweł Pela · Built cold and clean in Warsaw</p>
+</footer>
+
+</body>
+</html>
